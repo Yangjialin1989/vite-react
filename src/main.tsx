@@ -8,14 +8,19 @@ import 'reset-css'
 
 //全局css
 import '@/assets/styles/global.sass'
-
+//import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 //组件css
+
 import App from './App'
 
+import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+
   </React.StrictMode>,
 )
