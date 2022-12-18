@@ -12,6 +12,8 @@ const About = lazy(()=>import('@/views/About'))
 const Page1 = lazy(()=>import('@/views/Page1'))
 const Page2 = lazy(()=>import('@/views/Page2'))
 import Home from "@/views/Home";
+import Page301 from "@/views/Page301";
+import Login from "@/views/Login";
 
 
 const withLoadingComponent = (comp:JSX.Element) => (
@@ -37,6 +39,7 @@ const withLoadingComponent = (comp:JSX.Element) => (
 const routes = [
     {
         path:'/',
+        //Navigate to={} 重定向
         element:<Navigate to={'/page1'}/>
     },
     {
@@ -50,8 +53,22 @@ const routes = [
             {
                 path:'/page2',
                 element:withLoadingComponent(<Page2/>)
+            },
+            {
+                path:'/page3/page301',
+                element:withLoadingComponent(<Page301/>)
             }
         ]
+    },
+    {
+      path:'/login',
+      element: <Login/>
+    },
+    //访问其余路径直接跳转到首页
+    {
+        path:'*',
+        element:<Navigate to={'/page1'}/>
+
     }
 
 ]
