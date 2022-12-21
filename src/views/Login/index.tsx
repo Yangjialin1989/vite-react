@@ -1,15 +1,17 @@
 import React, {useEffect, Component, ChangeEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 //antd 组件
-import {Button, Input, Space,message} from 'antd'
+import {Button, Input, Space,message,Checkbox,Form} from 'antd'
 
 import styles from './login.module.scss'
 import initLoginBg from './init'
 
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import './login.less'
-import {CaptchaAPI,LoginAPI} from '@/request/api'
+import {CaptchaAPI,CaptchaAPI1,LoginAPI} from '@/request/api'
 //import {CaptchaAPIRes} from "@/types/api";
+import axios from 'axios'
+
 
 
 const Index = ()=> {
@@ -23,6 +25,25 @@ const Index = ()=> {
         getCaptchaImg()
 
     },[])
+
+
+    const onFinish = (values: any) => {
+        console.log('Success:', values);
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+    };
+
+
+
+
+
+
+
+
+
+
     //获取用户登录信息
     //定义用户输入信息变量，一旦值改了，变量就改了，所以拿到usernameVal就拿到用户的输入信息
     const [usernameVal,setUsernameVal] =useState('')
@@ -31,7 +52,8 @@ const Index = ()=> {
 
     //定义变量保存验证码图片信息
     const [captchaImg,setCaptchaImg] = useState('')
-
+    const [captchaImg1,setCaptchaImg1] = useState('')
+    let imgsvg = ''
     const usernameChange = (e:ChangeEvent<HTMLInputElement>) => {
         setUsernameVal(e.target.value);
     }
@@ -78,17 +100,29 @@ const Index = ()=> {
         console.log(captchaAPIRes);
         if(captchaAPIRes.code == 200){
             //1.渲染图片
-            setCaptchaImg('data:image/gif;base64,'+captchaAPIRes.img)
-
+            //setCaptchaImg('data:image/gif;base64,'+captchaAPIRes.img)
+            setCaptchaImg('data:image/svg+xml;utf8,'+captchaAPIRes.img)
+            //setCaptchaImg(captchaAPIRes.img)
+            document.getElementById('svg')!.innerHTML = captchaAPIRes.img
             //2.本地保存uuid，给登录的时候用
             localStorage.setItem('uuid',captchaAPIRes.uuid)
         }
 
 
     }
+    //
+    const core = async ()=>{
+        let res = await CaptchaAPI();
+        //console.log(res.img)
+        imgsvg = res.img;
+        //setCaptchaImg1('data:image/svg+xml;utf8,'+res.img)
+        setCaptchaImg1(res.img)
+       // document.write(res.img)
+        //console.log('captchaImg1'+captchaImg1)
+        document.getElementById('svg')!.innerHTML = res.img
+    }
 
-
-
+   console.log(captchaImg1)
 
     console.log(usernameVal)
         return (
@@ -111,12 +145,14 @@ const Index = ()=> {
                     <div className="CaptchaBox">
                         <Input placeholder={'验证码'}  onChange={captchaChange}/>
                         <div className="CaptchaImg" onClick={getCaptchaImg}>
-                            <img height={'38'} width={'100'} src={captchaImg} alt=""/>
+                            <div id={'svg'} >
+
+                            </div>
                         </div>
                     </div>
-
-                    <Button className={'loginBtn'} type={'primary'} block onClick={gotoLogin}>Login</Button>
+                             <Button className={'loginBtn'} type={'primary'} block onClick={gotoLogin}>Login</Button>
                     </Space>
+
                     </div>
             </div>
         );
