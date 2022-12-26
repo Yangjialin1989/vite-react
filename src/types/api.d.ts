@@ -9,6 +9,17 @@ interface CaptchaAPIRes {
 	uuid: string;
 }
 
+//验证码返回验证约束
+interface CaptchaRegistAPIRes{
+	code:number;
+	msg:string
+}
+//验证码前往验证约束
+interface CaptchaRegistAPIReq{
+	code:string;
+}
+
+
 //登录请求参数类型约束
 interface LoginAPIReq{
 	username:string;

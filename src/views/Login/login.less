@@ -21,15 +21,45 @@
   .CaptchaBox{
     display:flex;
     .CaptchaImg{
-      margin-left: 20px;
+
       cursor: pointer;
       border:1px solid #1890ff;
       height:38px;
     }
   }
-  //登录按钮
+  //网站登录页面
   .login{
-    height:38px;
+
+    margin-top:10px;
+    .ant-input, .ant-input-password{
+      background-color:rgba(255,255,255,0);
+      border-color:#1890ff;
+      color:#fff;
+      height: 38px;
+      //width:400px;
+
+    }
+    .ant-input,.ant-input-password::-webkit-input-placeholder{
+      color:rgba(24,144,255,.5);
+    }
+
+    .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+    .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+      background-color: rgba(255, 255, 255, 0);
+      border-color: #ff4d4f;
+
+    }
+    .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
+      background-color: rgba(255, 255, 255, 0);
+      border-color: #ff4d4f;
+    }
+
+    //验证码盒子
+
+   .CaptchaImg1{
+     width:100px; height:38px;
+   }
+
   }
 
 

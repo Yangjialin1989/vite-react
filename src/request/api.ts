@@ -7,10 +7,10 @@ import request from './index'
 //export const CaptchaAPI = () =>request.get('/prod-api/captchaImage')
 //export const CaptchaAPI = ():Promise<CaptchaAPIRes> =>request.get('/prod-api/captchaImage')
 export const CaptchaAPI = ():Promise<CaptchaAPIRes> =>request.get('/captcha/getInfo')
-export const CaptchaAPI1 = () =>request.get('/captcha/getInfo')
+export const CaptchaRegistAPI = (params:CaptchaRegistAPIReq):Promise<CaptchaRegistAPIRes> =>request.post('/captcha/regist')
 
 //登录请求
-export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> =>request.post('/prod-api/login',params)
+export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> =>request.post('/users/login',params)
 
 
 
