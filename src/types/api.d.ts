@@ -25,6 +25,7 @@ interface LoginAPIReq{
 	username:string;
 	password:string;
 	code:string;
+	remember:boolean;
 	uuid:string;
 }
 //登录响应类型约束
@@ -32,5 +33,15 @@ interface LoginAPIRes{
 	msg:string;
 	code:number;
 	token:string;
+	remember:boolean;
 }
+//注册用户名验证
+interface ValidUsernameAPIReq{
+	username:string;
+}
+interface ValidUsernameAPIRes{
+	msg:string;
+	code:number;
+}
+
 

@@ -14,6 +14,7 @@ const Page2 = lazy(()=>import('@/views/Page2'))
 import Home from "@/views/Home";
 import Page301 from "@/views/Page301";
 import Login from "@/views/Login";
+import Register from "@/views/Register";
 
 
 const withLoadingComponent = (comp:JSX.Element) => (
@@ -63,6 +64,10 @@ const routes = [
     {
       path:'/login',
       element: <Login/>
+    },
+    {
+      path:'/register',
+      element: <Register/>
     },
     //访问其余路径直接跳转到首页
     {

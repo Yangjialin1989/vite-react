@@ -16,7 +16,7 @@ import router from './router'
 *
 *
 * */
-
+import Registers from '@/views/Register'
 //首页
 function ToPage1(){
   const navigateTo = useNavigate()
@@ -43,6 +43,22 @@ function ToLogin(){
   },[])
   return <div></div>
 }
+//登录页
+function ToRegister(){
+  const navigateTo = useNavigate()
+
+  //jsx组件，有div,加载完实现跳转,下面模拟生命周期
+  useEffect(()=>{
+    //
+    navigateTo('/register')
+    message.success('欢迎注册！')
+  },[])
+  return <Registers/>
+}
+
+
+
+
 
 //路由卫士
 function BeforeRouterEnter(){
@@ -60,6 +76,9 @@ function BeforeRouterEnter(){
     return <ToPage1 />
   }
   if(location.pathname !== '/login' && !token){
+    if(location.pathname === '/register'){
+      return <ToRegister/>
+    }
     //跳转，不能直接用
     return <ToLogin />
   }

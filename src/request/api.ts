@@ -11,6 +11,9 @@ export const CaptchaRegistAPI = (params:CaptchaRegistAPIReq):Promise<CaptchaRegi
 
 //登录请求
 export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> =>request.post('/users/login',params)
+//注册
+//注册用户名验证
+export const ValidUsernameAPI = (params:ValidUsernameAPIReq):Promise<ValidUsernameAPIRes> =>request.post('/users/validUsername',params)
 
 
 
