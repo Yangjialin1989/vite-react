@@ -43,5 +43,16 @@ interface ValidUsernameAPIRes{
 	msg:string;
 	code:number;
 }
+//注册用户名验证
+interface RegisterAPIReq{
+	name:string;
+	password:string;
+	telephone:string;
+	email:string;
+}
+interface RegisterAPIRes{
+	msg:string;
+	code:number;
+}
 
 

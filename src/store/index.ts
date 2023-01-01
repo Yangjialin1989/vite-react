@@ -3,11 +3,13 @@ import {applyMiddleware, combineReducers, compose, legacy_createStore} from "red
 import reduxThunk from 'redux-thunk'
 import handleNum from './NumStatus/reducer'
 import handleArr from './ArrStatus/reducer'
+import handleFlag from './RegisterStatus/reducer'
 
 //组合各个模块的reducer
 const reducers = combineReducers({
     handleNum,
-    handleArr
+    handleArr,
+    handleFlag
 })
 
 

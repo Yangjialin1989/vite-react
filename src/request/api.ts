@@ -14,6 +14,8 @@ export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> =>request.post
 //注册
 //注册用户名验证
 export const ValidUsernameAPI = (params:ValidUsernameAPIReq):Promise<ValidUsernameAPIRes> =>request.post('/users/validUsername',params)
+//注册
+export const RegisterAPI = (params:RegisterAPIReq):Promise<RegisterAPIRes> =>request.post('/users/register',params)
 
 
 
