@@ -1,23 +1,31 @@
 
-import { Breadcrumb, Layout } from 'antd';
+import { Breadcrumb, Layout,Button } from 'antd';
 import React, { useState } from 'react';
 import {Outlet} from "react-router-dom";
 import MainMenu from "@/components/MainMenu";
-
+import {useNavigate} from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
 
 
 const View: React.FC = () => {
+    let navigateTo = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
-
+    const logout = ()=>{
+        console.log('jinlaile')
+        localStorage.removeItem('react-token')
+        //跳转到首页
+        navigateTo('/login')
+    }
 
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
             {/* 左边侧边栏*/}
             <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
-                <div className="logo" />
+                <div className="logo" >
+                    <Button onClick={logout}>退出</Button>
+                </div>
                 <MainMenu/>
             </Sider>
             {/* 右边内容*/}

@@ -53,6 +53,26 @@ interface RegisterAPIReq{
 interface RegisterAPIRes{
 	msg:string;
 	code:number;
+	name:string;
+	email:string;
+}
+//发送邮件
+interface SendEmailAPIReq{
+	name:string;
+	email:string;
+}
+interface SendEmailAPIRes{
+	msg:string;
+	code:number;
+}
+//获取用户数据
+interface GetAdminsAPIReq{
+	limit:number
+}
+interface GetAdminsAPIRes{
+	msg:string;
+	code:number;
+    data:[]
 }
 
 

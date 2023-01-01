@@ -209,7 +209,7 @@ const Index = () => {
 
                 const expire = 1000 * 60 * 2;
                 setTimeout(()=>{
-                    console.log('hhhh')
+
                     localStorage.removeItem('react-token')
                 },604800000)
             }else{
@@ -217,7 +217,7 @@ const Index = () => {
 
                 const expire = 1000 * 60 * 2;
                 setTimeout(()=>{
-                    console.log('hhhh')
+
                     localStorage.removeItem('react-token')
                 },800000)
             }

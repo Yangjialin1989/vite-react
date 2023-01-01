@@ -8,7 +8,7 @@ import initLoginBg from './init'
 
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import './login.less'
-import {RegisterAPI, CaptchaRegistAPI, LoginAPI, ValidUsernameAPI} from '@/request/api'
+import {RegisterAPI,SendEmailAPI, ValidUsernameAPI} from '@/request/api'
 //import {CaptchaAPIRes} from "@/types/api";
 import axios from 'axios'
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
@@ -68,7 +68,12 @@ const Index = () => {
         if (RegisterAPIRes.code === 200) {
             //提示登录成功
             message.success(RegisterAPIRes.msg)
-            //保存token
+            //发送邮件
+            let SendEmailAPIRes = await SendEmailAPI({
+                email:RegisterAPIRes.email,
+                name:RegisterAPIRes.name
+            })
+
 
 
 

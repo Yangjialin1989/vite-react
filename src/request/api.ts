@@ -16,6 +16,12 @@ export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> =>request.post
 export const ValidUsernameAPI = (params:ValidUsernameAPIReq):Promise<ValidUsernameAPIRes> =>request.post('/users/validUsername',params)
 //注册
 export const RegisterAPI = (params:RegisterAPIReq):Promise<RegisterAPIRes> =>request.post('/users/register',params)
+//发邮件
+export const SendEmailAPI = (params:SendEmailAPIReq):Promise<SendEmailAPIRes> =>request.post('/users/sendemail',params)
+
+
+//获取用户数据
+export const GetAdminsAPI = (params:GetAdminsAPIReq):Promise<GetAdminsAPIRes> =>request.post('/users/getAdmins',params)
 
 
 
