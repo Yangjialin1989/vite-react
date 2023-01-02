@@ -36,13 +36,13 @@ type MenuItem = Required<MenuProps>['items'][number];
 //登录请求数据，根items这个数组进行权限匹配，筛选出进行渲染
 const items:MenuItem[]=[
     {
-        label: '用户管理',
+        label: '管理员管理',
         key: '/page1',
         icon:<TeamOutlined />,
     },
     {
         label: '权限管理',
-        key: '/page2',
+        key: '/role',
         icon:<DesktopOutlined />,
     },
     {

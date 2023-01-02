@@ -21,7 +21,12 @@ export const SendEmailAPI = (params:SendEmailAPIReq):Promise<SendEmailAPIRes> =>
 
 
 //获取用户数据
-export const GetAdminsAPI = (params:GetAdminsAPIReq):Promise<GetAdminsAPIRes> =>request.post('/users/getAdmins',params)
+export const GetAdminsAPI = (params:GetAdminsAPIReq):Promise<GetAdminsAPIRes> =>request.post('/users/getadmins',params)
+
+//删除用户数据
+export const DeleteAdminsAPI = (params:DeleteAdminsAPIReq):Promise<DeleteAdminsAPIRes> =>request.post('/users/deleteadmins',params)
+//添加用户数据
+export const AddAdminsAPI = (params:AddAdminsAPIReq):Promise<AddAdminsAPIRes> =>request.post('/users/addadmins',params)
 
 
 

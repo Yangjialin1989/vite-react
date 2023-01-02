@@ -49,6 +49,7 @@ interface RegisterAPIReq{
 	password:string;
 	telephone:string;
 	email:string;
+	id:number;
 }
 interface RegisterAPIRes{
 	msg:string;
@@ -73,6 +74,27 @@ interface GetAdminsAPIRes{
 	msg:string;
 	code:number;
     data:[]
+}
+//删除用户数据
+interface DeleteAdminsAPIReq{
+	id:number
+}
+interface DeleteAdminsAPIRes{
+	msg:string;
+	code:number;
+}
+//添加用户数据
+interface AddAdminsAPIReq{
+	name:string;
+	password:string;
+	telephone:string;
+	email:string;
+	id:number;
+
+}
+interface AddAdminsAPIRes{
+	msg:string;
+	code:number;
 }
 
 

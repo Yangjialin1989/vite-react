@@ -53,9 +53,8 @@ const Index = () => {
 
     const onFinish = async (values: any) => {
 
-
-
-
+        //唯一id
+        let id=new Date().valueOf();
 
         //3.发起请求
         let {username,password,telephone,email} = values;
@@ -63,7 +62,8 @@ const Index = () => {
             name: username,
             password: password,
             telephone: telephone,
-            email:email
+            email:email,
+            id:id
         })
         if (RegisterAPIRes.code === 200) {
             //提示登录成功

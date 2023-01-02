@@ -9,12 +9,13 @@ import React,{lazy} from 'react'
 import {Navigate} from "react-router-dom";
 
 const About = lazy(()=>import('@/views/About'))
-const Users = lazy(()=>import('@/views/Users'))
+const Users = lazy(()=>import('@/views/Admin/Admin'))
 const Page2 = lazy(()=>import('@/views/Page2'))
 import Home from "@/views/Home";
 import Page301 from "@/views/Page301";
 import Login from "@/views/Login";
 import Register from "@/views/Register";
+import RoleList from "@/views/Role/RoleList";
 
 
 const withLoadingComponent = (comp:JSX.Element) => (
@@ -41,38 +42,46 @@ const routes = [
     {
         path:'/',
         //Navigate to={} 重定向
-        element:<Navigate to={'/page1'}/>
+        element:<Navigate to={'/page1'}/>,
+        key:'1'
     },
     {
         path:'/',
         element: <Home/>,
+        key:'2',
         children:[
             {
                 path:'/page1',
-                element:withLoadingComponent(<Users/>)
+                element:withLoadingComponent(<Users/>),
+                key:'2-1'
             },
             {
-                path:'/page2',
-                element:withLoadingComponent(<Page2/>)
+                path:'/role',
+                element:withLoadingComponent(<RoleList/>),
+                key:'2-2'
             },
             {
                 path:'/page3/page301',
-                element:withLoadingComponent(<Page301/>)
+                element:withLoadingComponent(<Page301/>),
+                key:'2-3'
             }
         ]
     },
     {
       path:'/login',
-      element: <Login/>
+      element: <Login/>,
+      key:'3'
     },
     {
       path:'/register',
-      element: <Register/>
+      element: <Register/>,
+      key:'4'
     },
     //访问其余路径直接跳转到首页
     {
         path:'*',
-        element:<Navigate to={'/page1'}/>
+        element:<Navigate to={'/page1'}/>,
+        key:'1000000'
 
     }
 

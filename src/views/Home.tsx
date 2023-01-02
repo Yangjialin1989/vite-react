@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import {Outlet} from "react-router-dom";
 import MainMenu from "@/components/MainMenu";
 import {useNavigate} from "react-router-dom";
+import SubTitle from "@/components/SubTitle";
 const { Header, Content, Footer, Sider } = Layout;
 
 
@@ -31,11 +32,8 @@ const View: React.FC = () => {
             {/* 右边内容*/}
             <Layout className="site-layout">
                 {/* 右边头部*/}
-                <Header className="site-layout-background" style={{ padding: 0 }} >
-                    <Breadcrumb style={{ margin: '16px 16px 0' }}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb>
+                <Header className="site-layout-background" style={{ padding: '0px',backgroundColor:'#fff' }} >
+                    <SubTitle ></SubTitle>
                 </Header>
                 {/* 右边内容*/}
                 <Content style={{ margin: '16px 16px 0' }} className="site-layout-background">
